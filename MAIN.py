@@ -11,12 +11,24 @@ import pathlib
 import textwrap
 from PIL import Image
 # added code from here
-from IPython.display import display
-from IPython.display import Markdown
+# from IPython.display import display
+# from IPython.display import Markdown
+
+# def to_markdown(text):
+#   text = text.replace('•', '  *')
+#   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+
+
 
 def to_markdown(text):
-  text = text.replace('•', '  *')
-  return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+    # Replace bullet points with markdown bullet points
+    text = text.replace('•', '*')
+    # Indent the text with markdown blockquote style
+    text = textwrap.indent(text, '> ')
+    # Display the text as markdown
+    st.markdown(text, unsafe_allow_html=True)
+
+
 # added code till here
 
 import google.generativeai as genai
