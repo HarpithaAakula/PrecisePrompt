@@ -18,7 +18,9 @@ from PIL import Image
 #   text = text.replace('•', '  *')
 #   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-
+# def to_markdown(text):
+#     text = text.replace('•', '  *')
+#     return textwrap.indent(text, '> ')
 
 def to_markdown(text):
     # Replace bullet points with markdown bullet points
@@ -26,7 +28,7 @@ def to_markdown(text):
     # Indent the text with markdown blockquote style
     text = textwrap.indent(text, '> ')
     # Display the text as markdown
-    st.markdown(text, unsafe_allow_html=True)
+    return st.markdown(text, unsafe_allow_html=True)
 
 
 # added code till here
@@ -42,9 +44,9 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 def get_gemini_response1(input,image):
     model1 = genai.GenerativeModel('gemini-pro-vision')
     if input!="":
-       response1 = model.generate_content([input,image])
+       response1 = model1.generate_content([input,image])
     else:
-       response1 = model.generate_content(image)
+       response1 = model1.generate_content(image)
     return response1.text
 
 def get_gemini_response(question):
@@ -82,4 +84,4 @@ if submit1:
     
     response1=get_gemini_response1(input,image)
     st.subheader("The Response is")
-    st.write(response)
+    st.write(response1)
