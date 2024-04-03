@@ -3,7 +3,7 @@
 
 from dotenv import load_dotenv
 
-load_dotenv(.env)  # take environment variables from .env.
+load_dotenv(https://github.com/HarpithaAakula/PrivateFiles/blob/master/.env)  # take environment variables from .env.
 
 import streamlit as st
 import os
